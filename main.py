@@ -100,13 +100,20 @@ def check_file(file_train_name):
 
 
 if __name__ == "__main__":
+    
     # 采样率，2.1必须为32000
+    
+    
+    
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--name', help="display a square of a given number", type=str)
+    args = parser.parse_args()
     target_sample = 32000
     # 配置文件
     hps_ms = get_hparams_from_file("yilanqiu.json")
     # speaker id
     ID = "|3|"
-    dataset_name = "tianyi"  # speaker 文件夹名
+    dataset_name = args.name  # speaker 文件夹名
     real_path = "./dataset/" + dataset_name
     pre = "dataset"
     # 转换采样率
